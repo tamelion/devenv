@@ -1,0 +1,66 @@
+[user]
+	# Ask per user/email for each repo
+	useConfigOnly = true
+
+[core]
+  # Handle line endings
+	autocrlf = input
+
+[push]
+	# Create remote branch if it doesn't exist
+	default = current
+
+[rebase]
+	autosquash = true
+
+[credential]
+	helper = cache
+
+[difftool]
+	prompt = false
+
+[diff]
+	tool = vimdiff
+
+[mergetool]
+	keepBackup = false
+
+[mergetool "vimdiff"]
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[merge]
+    # Include summaries of merged commits in newly created merge commit messages
+	log = true
+	tool = vimdiff
+	conflictstyle = diff3
+
+[alias]
+	a = add
+	b = branch
+	c = commit -m
+	co = checkout
+	cc = commit --amend --reuse-message HEAD
+	ca = commit --verbose --amend
+	d = diff
+	ds = diff --staged
+	g = grep -n
+	l = "log -10 --topo-order --pretty=format:'%C(auto)%h %s%n%C(cyan)(%ar by %an)%C(auto)%d%n'"
+	ll = "log --topo-order"
+	lg = "log --topo-order --all --graph --simplify-by-decoration --pretty=format:'%C(auto)%h %s%d'"
+	m = merge
+	mt = mergetool
+	p = push
+	pf = push --force-with-lease
+	r = "!f() { git fetch; git rebase origin/$1; }; f"
+	assets = ! git rm -r --cached . && git add .
+	s = status -s
+	sl = status
+	standup = shortlog --since=yesterday
+
+[color "diff"]
+	meta = magenta
+
+[color "grep"]
+	filename = magenta
+	linenumber = blue
+	match = magenta bold

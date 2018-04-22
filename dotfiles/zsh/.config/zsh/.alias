@@ -1,0 +1,10 @@
+# Listing colours
+alias ls='ls --color'
+
+# Use nvim by default
+alias vi='nvim'
+alias vim='nvim'
+
+# Listing shorhand
+alias ll='ls -hl'
+alias la='ls -Ahl'
